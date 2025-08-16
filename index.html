@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ted's Woodeworking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'ted-orange': '#FFA500',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            perspective: 100px;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            /* padding-top: 50px; */
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(to bottom right, #000 50%, #fff 50%);
+            z-index: 1;
+            transform: skewY(-0.1deg);
+            /* Adjust the angle as needed */
+            transform-origin: bottom left;
+        }
+
+        .section2 {
+            position: relative;
+            overflow: hidden;
+            perspective: 100px;
+        }
+
+        .section2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            /* padding-top: 50px; */
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(to bottom right, #fff 50%, #fff 50%);
+            z-index: 1;
+            transform: skewY(-0.1deg);
+            /* Adjust the angle as needed */
+            transform-origin: bottom left;
+        }
+
+        .testimonial-card {
+            background-color: #000;
+            color: #fff;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 2px solid #00f;
+            /* Blue border like in the image */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-item img {
+            margin-right: 0.5rem;
+        }
+
+        .section7 {
+            background-color: #fff;
+        }
+
+        .section7 img {
+            border-radius: 0.5rem;
+        }
+
+        .section8 {
+            background-color: #f5f5f5;
+        }
+
+        .section8-card {
+            background-color: #000;
+            color: #fff;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section9 {
+            background-color: #000;
+        }
+
+        .faq-item .faq-answer {
+            transition: all 0.3s ease;
+        }
+
+        .faq-item .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .section9 .h-full {
+            transition: min-height 0.3s ease, max-height 0.3s ease;
+        }
+
+        .section10 {
+            background-color: #fff;
+        }
+
+        .section11 {
+            background-color: #000;
+        }
+
+        .custom-button {
+            background-color: #f28c38;
+            /* Orange color */
+            color: white;
+            /* White text */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .custom-button .arrow {
+            background-color: white;
+            color: #f28c38;
+            /* Orange color for contrast */
+            padding: 2px 6px;
+            border-radius: 50%;
+            font-size: 14px;
+        }
+
+        .custom-button:hover {
+            background-color: #e07b2f;
+            /* Slightly darker orange on hover */
+        }
+    </style>
+</head>
+
+<body class="font-sans">
+
+    <header>
+        <nav class="bg-black text-white px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+            <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+                <div class="font-bold text-xl mb-4 sm:mb-0">Ted's Woodworking</div>
+                <div class="flex items-center lg:order-2">
+                    <div
+                        class="w-[215px] h-[40px] rounded-md bg-ted-orange flex justify-between items-center pl-[16px] font-semibold">
+                        <p class="text-black">Get Instant Access</p>
+                        <div
+                            class="w-[40px] h-[40px] bg-white rounded-r-md rounded-l-none flex items-center justify-center">
+                            <img src="public/assets/images/arrow.svg" alt="arrow" class="w-4 h-4">
+                        </div>
+                    </div>
+                    <button data-collapse-toggle="mobile-menu-2" type="button"
+                        class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        aria-controls="mobile-menu-2" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
+                    <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                        <li>
+                            <a href="#"
+                                class="block py-2 pr-4 pl-3 rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                                aria-current="page">Reviews</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 pr-4 pl-3  border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">How
+                                to use?</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 pr-4 pl-3  border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Benefits</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Bonus</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">FAQs</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- header complete -->
+
+    <!-- Hero Section -->
+    <main class="hero-section bg-black text-white">
+        <section>
+            <div class="max-w-4xl mx-auto text-center pt-12 pb-8 px-6">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                    The Largest Collection of
+                </h1>
+                <h2 class="text-4xl md:text-5xl font-bold text-ted-orange mb-6">
+                    16,000+ <span class="text-white">Woodworking Plans</span>
+                </h2>
+                <p class="text-xl md:text-2xl mb-2">
+                    Unlock Expert-Designed Projects for Every
+                </p>
+                <p class="text-xl md:text-2xl mb-8">
+                    Skill Level – <span class="font-semibold">From Beginners to Pros</span>
+                </p>
+
+                <a href="#"
+                    class="bg-ted-orange text-black font-bold text-lg px-8 py-3 rounded-full inline-block mb-6 hover:bg-yellow-500 transition-colors">
+                    Get Instant Access
+                </a>
+
+                <p class="text-lg mb-12">
+                    16,000+ Plans for Just $67!
+                </p>
+
+                <!-- Product Image -->
+                <div class="relative">
+                    <img src="public\assets\images\Section 1.svg" alt="Ted's Woodworking Products"
+                        class="w-full max-w-3xl mx-auto">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- section2 -->
+
+    <main class="section2">
+        <!-- Reviews Section -->
+        <section id="reviews" class="bg-white max-w-6xl mx-auto px-6 py-16">
+            <!-- Reviews label -->
+            <div class="mb-0">
+                <span class="text-sm font-semibold uppercase text-ted-orange">Reviews</span>
+            </div>
+            <div class="flex mb-8">
+                <h3 class="text-2xl md:text-3xl font-bold mr-2 whitespace-nowrap">
+                    What Client Says
+                </h3>
+                <div class="flex-grow self-end border-t-2 border-black mb-2"></div>
+            </div>
+
+            <div class="grid gap-8 md:grid-cols-3">
+                <!-- Card 1 -->
+                <div
+                    class="bg-black text-white p-6 rounded-xl shadow-lg flex flex-col justify-between border border-gray-200">
+                    <!-- Quote Icon -->
+                    <div class="flex mb-4">
+                        <img src="public\assets\images\section 2 testimonial icon.svg" alt="Quote Icon"
+                            class="h-6 w-6 mr-2">
+                    </div>
+                    <!-- Testimonial Text -->
+                    <p class="flex-1 text-sm md:text-base mb-6">
+                        “TedsWoodworking is a must-have for any woodworking enthusiast! The variety of projects is
+                        incredible, and the step-by-step plans are easy to follow. I love the option to request custom
+                        plans, which makes it feel personalized. Whether you’re a beginner or an expert, this package
+                        covers everything you need. Highly recommended!”
+                    </p>
+                    <!-- Author and Ratings -->
+                    <div class="flex items-center mt-4">
+                        <img src="public\assets\images\section 2 avatar 1.svg" alt="James Carter"
+                            class="h-10 w-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-semibold">James Carter</p>
+                            <div class="flex text-yellow-400 space-x-1">
+                                <!-- 5 Stars -->
+                                <img src="public\assets\images\section 2 ratings.svg" alt="5 Stars">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="bg-black text-white p-6 rounded-xl shadow-lg flex flex-col justify-between border border-gray-200">
+                    <!-- Quote Icon -->
+                    <div class="flex mb-4">
+                        <img src="public\assets\images\section 2 testimonial icon.svg" alt="Quote Icon"
+                            class="h-6 w-6 mr-2">
+                    </div>
+                    <!-- Testimonial Text -->
+                    <p class="flex-1 text-sm md:text-base">
+                        “I recently purchased TedsWoodworking, and I’m beyond impressed! The detailed guides and
+                        tutorial videos have taken my woodworking skills to the next level. The plans come with clear
+                        diagrams and precise measurements, making every project a breeze. I opted for the USB and DVD
+                        package, and having everything delivered was a huge plus. This has quickly become my go-to
+                        woodworking resource!”
+                    </p>
+                    <!-- Author and Ratings -->
+                    <div class="flex items-center">
+                        <img src="public\assets\images\section 2 avatar 2.svg" alt="James Carter"
+                            class="h-10 w-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-semibold">James Carter</p>
+                            <div class="flex text-yellow-400 space-x-1">
+                                <!-- 5 Stars -->
+                                <img src="public\assets\images\section 2 ratings.svg" alt="5 Stars">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="bg-black text-white p-6 rounded-xl shadow-lg flex flex-col justify-between border border-gray-200">
+                    <!-- Quote Icon -->
+                    <div class="flex mb-4">
+                        <img src="public\assets\images\section 2 testimonial icon.svg" alt="Quote Icon"
+                            class="h-6 w-6 mr-2">
+                    </div>
+                    <!-- Testimonial Text -->
+                    <p class="flex-1 text-sm md:text-base mb-6">
+                        “TedsWoodworking has completely transformed my approach to woodworking. The expert support and
+                        customized plans make it easy to tackle any project with confidence. I started with simple
+                        builds, and now I’m creating advanced pieces effortlessly. The ability to access plans from any
+                        device in my workshop is a game-changer. If you love woodworking, this is the ultimate
+                        resource!”
+                    </p>
+                    <!-- Author and Ratings -->
+                    <div class="flex items-center mt-4">
+                        <img src="public\assets\images\section 2 avatar 3.svg" alt="James Carter"
+                            class="h-10 w-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-semibold">James Carter</p>
+                            <div class="flex text-yellow-400 space-x-1">
+                                <!-- 5 Stars -->
+                                <img src="public\assets\images\section 2 ratings.svg" alt="5 Stars">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Section 3 -->
+
+    <main class="section3 bg-gray-100 ">
+        <section class="max-w-6xl mx-auto px-6 py-16">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <!-- Left Side: Text Content -->
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-ted-orange mb-4">
+                        What is the Ted’s Woodworking?
+                    </h2>
+                    <p class="text-lg md:text-xl mb-6">
+                        The Teds Woodworking Course is a complete, easy-to-follow resource designed to help woodworking
+                        enthusiasts master the skills needed to create high-quality projects. Created by Ted McGrath, an
+                        experienced woodworker and member of the Architectural Woodwork Institute (AWI), this course
+                        features over 16,000 detailed plans. Whether you’re building furniture, garden items, bird
+                        feeders, sheds, or custom décor, you’ll find step-by-step guidance for every project.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="feature-item flex items-center">
+                            <img src="public\assets\images\section 3 icon.svg" alt="Check Icon" class="h-6 w-6 mr-2">
+                            <span class="font-semibold">Expertly Designed</span>
+                        </div>
+                        <div class="feature-item flex items-center">
+                            <img src="public\assets\images\section 3 icon.svg" alt="Check Icon" class="h-6 w-6 mr-2">
+                            <span class="font-semibold">Flexible Access</span>
+                        </div>
+                        <div class="feature-item flex items-center">
+                            <img src="public\assets\images\section 3 icon.svg" alt="Check Icon" class="h-6 w-6 mr-2">
+                            <span class="font-semibold">Lifetime Access</span>
+                        </div>
+                        <div class="feature-item flex items-center">
+                            <img src="public\assets\images\section 3 icon.svg" alt="Check Icon" class="h-6 w-6 mr-2">
+                            <span class="font-semibold">Customizable Projects</span>
+                        </div>
+                    </div>
+                    <a href="#"
+                        class="bg-ted-orange text-black font-bold text-lg px-8 py-3 rounded-full inline-block hover:bg-yellow-500 transition-colors">
+                        Get Instant Access
+                    </a>
+                    <p class="text-lg mt-4">
+                        16,000+ Plans for Just $67!
+                    </p>
+                </div>
+                <!-- Right Side: Single Image -->
+                <div class="flex justify-center">
+                    <img src="public\assets\images\section 3 image.png" alt="Woodworking Tools and Projects"
+                        class="w-full max-w-md">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Section 4 -->
+
+    <main class="section4">
+        <section class="max-w-6xl mx-auto px-6 py-16">
+            <div class="text-center mb-12">
+                <div class="flex items-center justify-center mb-2">
+                    <div class="flex-grow border-t-2 border-black mr-2 max-w-[50px]"></div>
+                    <span class="text-md font-semibold uppercase">How To Use</span>
+                    <div class="flex-grow border-t-2 border-black ml-2 max-w-[50px]"></div>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-ted-orange mb-4">
+                    Ted's Woodworking
+                </h2>
+                <p class="text-lg md:text-xl mx-auto max-w-3xl">
+                    Starting your woodworking journey has never been easier, thanks to Ted's Woodworking. This
+                    comprehensive guide lays a solid foundation by covering essential woodworking concepts, tools, and
+                    techniques.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-[2fr_1fr] gap-1 items-center">
+                <!-- Left Side: Single Image -->
+                <div>
+                    <img src="public\assets\images\section 4 image.png" alt="Woodworking Image"
+                        class="w-full h-auto p-12">
+                </div>
+                <!-- Right Side: Info Card -->
+                <div>
+                    <div class="info-card bg-black text-white p-6 text-center">
+                        <h3 class="text-md font-semibold">
+                            Master Woodworking with
+                        </h3>
+                        <span class="text-2xl font-bold uppercase text-ted-orange">Step-by-Step Guidance</span>
+                        <p class="text-base my-6">
+                            Ted's easy-to-follow instructions help woodworkers of all levels build confidence. Start
+                            with simple projects, then progress to more complex designs. Each plan includes clear
+                            diagrams and material lists, helping you focus on refining your skills and choosing the
+                            right wood for lasting, high-quality projects. Create stunning pieces with Ted's expert
+                            guidance.
+                        </p>
+                        <a href="#"
+                            class="text-center bg-ted-orange text-black font-bold text-lg px-8 py-3 rounded-full inline-block hover:bg-yellow-500 transition-colors mb-4">
+                            Get Instant Access
+                        </a>
+                        <p class="text-lg text-center">
+                            16,000+ Plans for Just $67!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- section 5 -->
+
+    <main class="section5">
+        <section class="max-w-6xl mx-auto px-6 py-16 bg-white">
+            <div class="grid md:grid-cols-[2fr_1fr] gap-8 items-center">
+                <!-- Left Side: Text Content -->
+                <div class="text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Who is Ted McGrath?
+                    </h2>
+                    <p class="text-lg md:text-xl">
+                        Ted McGrath is a master woodworker, mentor, and best-selling author, known for creating
+                        TedsWoodworking—one of the most comprehensive woodworking resources. With years of experience,
+                        he’s helped thousands of enthusiasts improve their skills through step-by-step plans and expert
+                        guidance.
+                        <br>
+                        Ted is also a successful entrepreneur, having built five brands and mentored professionals in
+                        business and personal development. His teaching simplifies complex concepts, making woodworking
+                        accessible and enjoyable for everyone.
+                        <br>
+                        With over 16,000 detailed plans, TedsWoodworking empowers woodworkers to turn their ideas into
+                        stunning creations, ensuring success in every project.
+                    </p>
+                </div>
+                <!-- Right Side: Image -->
+                <div class="flex justify-center">
+                    <img src="public\assets\images\section 5.png" alt="Ted McGrath" class="w-full max-w-md">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Section 6 -->
+
+    <main class="section6 bg-black">
+        <section id="reviews" class="max-w-6xl mx-auto px-6 py-16 relative">
+            <!-- Section Heading -->
+            <div class="mb-0">
+                <span class="text-sm font-semibold uppercase text-ted-orange">Benefits of The</span>
+            </div>
+            <div class="flex mb-8">
+                <h3 class="text-2xl md:text-3xl font-bold mr-2 whitespace-nowrap text-white">
+                    Ted's Woodworking
+                </h3>
+                <div class="flex-grow self-end border-t-2 border-white mb-2"></div>
+            </div>
+
+            <!-- Carousel Wrapper -->
+            <div class="overflow-hidden relative">
+                <div id="carousel" class="flex transition-transform duration-500 ease-in-out w-fit">
+                    <!-- All Cards -->
+                    <div
+                        class="card w-[220px] md:w-[260px] shrink-0 bg-[#1C1C1C] text-white p-6 rounded-xl shadow-lg flex flex-col justify-between mx-2">
+                        <h3 class="text-2xl font-bold mb-2">01.</h3>
+                        <h4 class="text-xl md:text-2xl font-bold uppercase mb-4">Perfect for All Skill Levels</h4>
+                        <p class="text-sm md:text-base">
+                            Ted’s Woodworking is ideal for beginners and experts. Clear instructions and visuals help
+                            you build confidence and create projects, even if you’ve never worked with wood.
+                        </p>
+                    </div>
+                    <div
+                        class="card w-[220px] md:w-[260px] shrink-0 bg-[#1C1C1C] text-white p-6 rounded-xl shadow-lg flex flex-col justify-between mx-2">
+                        <h3 class="text-2xl font-bold mb-2">02.</h3>
+                        <h4 class="text-xl md:text-2xl font-bold uppercase mb-4">16,000+ Plans to Inspire Creativity
+                        </h4>
+                        <p class="text-sm md:text-base">
+                            With over 16,000 plans available, you'll always have fresh ideas. From treehouses to
+                            furniture, Ted’s precise blueprints guide you through each project step-by-step.
+                        </p>
+                    </div>
+                    <div
+                        class="card w-[220px] md:w-[260px] shrink-0 bg-[#1C1C1C] text-white p-6 rounded-xl shadow-lg flex flex-col justify-between mx-2">
+                        <h3 class="text-2xl font-bold mb-2">03.</h3>
+                        <h4 class="text-xl md:text-2xl font-bold uppercase mb-4">Bonus Guides for Extra Value</h4>
+                        <p class="text-sm md:text-base">
+                            Get four bonus guides with expert tips and advanced techniques. These extra resources help
+                            refine your skills, making your woodworking experience even better.
+                        </p>
+                    </div>
+                    <div
+                        class="card w-[220px] md:w-[260px] shrink-0 bg-[#1C1C1C] text-white p-6 rounded-xl shadow-lg flex flex-col justify-between mx-2">
+                        <h3 class="text-2xl font-bold mb-2">04.</h3>
+                        <h4 class="text-xl md:text-2xl font-bold uppercase mb-4">Budget-Friendly & Cost-Effective</h4>
+                        <p class="text-sm md:text-base">
+                            Woodworking doesn't have to break the bank. Ted’s Woodworking shows you how to select
+                            affordable materials and tools without compromising quality.
+                        </p>
+                    </div>
+                    <div
+                        class="card w-[220px] md:w-[260px] shrink-0 bg-[#1C1C1C] text-white p-6 rounded-xl shadow-lg flex flex-col justify-between mx-2">
+                        <h3 class="text-2xl font-bold mb-2">05.</h3>
+                        <h4 class="text-xl md:text-2xl font-bold uppercase mb-4">Build with Confidence</h4>
+                        <p class="text-sm md:text-base">
+                            Ted’s Woodworking gives you full control over your materials. Craft durable, high-quality
+                            pieces that will impress for years to come.
+                        </p>
+                    </div>
+                    <div
+                        class="card w-[220px] md:w-[260px] shrink-0 bg-[#1C1C1C] text-white p-6 rounded-xl shadow-lg flex flex-col justify-between mx-2">
+                        <h3 class="text-2xl font-bold mb-2">06.</h3>
+                        <h4 class="text-xl md:text-2xl font-bold uppercase mb-4">Rewarding Experience</h4>
+                        <p class="text-sm md:text-base">
+                            Transforming raw wood into a beautiful project is incredibly rewarding. Ted’s Woodworking
+                            makes every project a fulfilling journey for all skill levels.
+                        </p>
+                    </div>
+                </div>
+                <div class="mb-16">
+                    <button id="prev"
+                        class="absolute bottom-0 right-20 text-white bg-gray-700 p-2 rounded-full z-10 hover:bg-gray-600">
+                        ←
+                    </button>
+                    <button id="next"
+                        class="absolute bottom-0 right-6 text-white bg-gray-700 p-2 rounded-full z-10 hover:bg-gray-600">
+                        →
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Section 7 -->
+
+    <main class="section7">
+        <section class="max-w-6xl mx-auto px-6 py-16 bg-white">
+            <div class="text-center mb-12">
+                <div class="flex items-center justify-center mb-2">
+                    <div class="flex-grow border-t-2 border-black mr-2 max-w-[50px]"></div>
+                    <span class="text-md font-bold uppercase">Bonuses With </span>
+                    <div class="flex-grow border-t-2 border-black ml-2 max-w-[50px]"></div>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-ted-orange">
+                    Ted's Woodworking
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Bonus 1 -->
+                <div class="text-center">
+                    <img src="public\assets\images\section 7 image 1.png" alt="DWG/CAD Plan Viewer"
+                        class="w-full max-w-xs mb-4">
+                    <h3
+                        class="text-lg font-semibold mb-2 bg-black text-white px-4 py-2 rounded-none inline-block w-full">
+                        Bonus #1
+                    </h3>
+                    <p class="text-sm">
+                        <strong>DWG/CAD Plan Viewer Regular Price: $47 - Yours FREE!</strong><br>
+                        <br>
+                        Ted's Woodworking includes a powerful DWG/CAD Plan Viewer - a premium software that typically
+                        costs hundreds of dollars, now yours free of charge.
+                    </p>
+                </div>
+                <!-- Bonus 2 -->
+                <div class="text-center">
+                    <img src="public\assets\images\section 7 image 2.png" alt="DWG/CAD Plan Viewer"
+                        class="w-full max-w-xs mb-4">
+                    <h3
+                        class="text-lg font-semibold mb-2 bg-black text-white px-4 py-2 rounded-none inline-block w-full">
+                        Bonus #2
+                    </h3>
+                    <p class="text-sm">
+                        <strong>150 Premium Videos Regular Price: $77 - Yours FREE!</strong><br>
+                        <br>
+                        Gain lifetime access to 150+ expert woodworking videos, designed to help you learn essential
+                        techniques, refine your skills, and master woodworking with ease.
+                    </p>
+                </div>
+                <!-- Bonus 3 -->
+                <div class="text-center">
+                    <img src="public\assets\images\section 7 image 3.png" alt="DWG/CAD Plan Viewer"
+                        class="w-full max-w-xs mb-4">
+                    <h3
+                        class="text-lg font-semibold mb-2 bg-black text-white px-4 py-2 rounded-none inline-block w-full">
+                        Bonus #3
+                    </h3>
+                    <p class="text-sm">
+                        <strong>How To Start A Woodworking Business Regular Price: $27 - Yours FREE!</strong><br>
+                        <br>
+                        Want to turn your woodworking hobby into a business? This guide includes a complete guide with
+                        strategies, marketing tips, and profit-driven insights.
+                    </p>
+                </div>
+                <!-- Bonus 4 -->
+                <div class="text-center">
+                    <img src="public\assets\images\section 7 image 4.png" alt="DWG/CAD Plan Viewer"
+                        class="w-full max-w-xs mb-4">
+                    <h3
+                        class="text-lg font-semibold mb-2 bg-black text-white px-4 py-2 rounded-none inline-block w-full">
+                        Bonus #4
+                    </h3>
+                    <p class="text-sm">
+                        <strong>Complete Woodworking Guides Regular Price: $39 - Yours FREE!</strong><br>
+                        <br>
+                        Ted's Woodworking is more than plans - it’s a complete education! With 200+ pages of expert tips
+                        and techniques, it covers tools, wood types, and advanced methods.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Section 8 -->
+    <main class="section8">
+        <section class="max-w-6xl mx-auto px-6 py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    What's Included In The Purchase?
+                </h2>
+                <p class="text-lg md:text-xl mx-auto max-w-4xl">
+                    When you purchase Ted's Woodworking, you get access to over 16,000 detailed plans, step-by-step
+                    guides, expert tips, bonus materials, and HD video tutorials. Plus, enjoy lifetime access to new
+                    monthly plans, custom blueprint requests, and ongoing support to help you every step of the way.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="section8-card">
+                    <h3 class="text-xl font-bold mb-4">
+                        16,000 Ready-To-Build Plans
+                    </h3>
+                    <p class="text-sm md:text-base">
+                        Access 16,000+ woodworking plans with detailed blueprints and instructions for all skill levels.
+                        From bookshelves to gazebos, bring your ideas to life with clear guidance.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="section8-card">
+                    <h3 class="text-xl font-bold mb-4">
+                        Lifetime Access to New Monthly Plans
+                    </h3>
+                    <p class="text-sm md:text-base">
+                        Get new woodworking plans every month – free for life! Download fresh projects regularly with no
+                        hidden fees or subscriptions, keeping your creativity flowing.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="section8-card">
+                    <h3 class="text-xl font-bold mb-4">
+                        Custom Plans & Expert Support
+                    </h3>
+                    <p class="text-sm md:text-base">
+                        Request personalized plans for unique projects, and get expert support via email & community
+                        forums for any help you need along the way.
+                    </p>
+                </div>
+                <!-- Card 4 -->
+                <div class="section8-card">
+                    <h3 class="text-xl font-bold mb-4">
+                        Access Your Plans Anytime, Anywhere
+                    </h3>
+                    <p class="text-sm md:text-base">
+                        View your plans on any device – smartphones, tablets, or computers—so you can work on your
+                        projects anytime, anywhere.
+                    </p>
+                </div>
+                <!-- Card 5 -->
+                <div class="section8-card">
+                    <h3 class="text-xl font-bold mb-4">
+                        Instant Online Access + Physical Copies (DVD & USB)
+                    </h3>
+                    <p class="text-sm md:text-base">
+                        Enjoy lifetime digital access to all plans, or get physical copies via DVD or USB, shipped to
+                        your doorstep for offline use.
+                    </p>
+                </div>
+                <!-- Card 6 -->
+                <div class="section8-card">
+                    <h3 class="text-xl font-bold mb-4">
+                        Step-by-Step Guides & HD Tutorial Videos
+                    </h3>
+                    <p class="text-sm md:text-base">
+                        Master woodworking with step-by-step guides and HD video tutorials. Learn from experts with
+                        easy-to-follow instructions for all skill levels.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Section 9 -->
+
+    <main class="section9">
+        <section class="max-w-6xl mx-auto px-6 py-16 bg-black text-white">
+            <div class="grid md:grid-cols-[1fr_2fr] gap-8 items-center">
+                <!-- Left Side: Image -->
+                <div class="flex justify-center">
+                    <img src="public\assets\images\section 9 image.png" alt="Woodworking Image"
+                        class="w-full max-w-md rounded-lg">
+                </div>
+                <!-- Right Side: FAQ -->
+                <div>
+                    <h2 class="text-3xl font-bold text-ted-orange mb-4">
+                        FREQUENTLY<br>
+                        <span class="text-white">ASKED QUESTIONS</span>
+                    </h2>
+                    <p class="text-sm mb-6">
+                        It’s natural to have some questions about how this program works if you’re new to it. A common
+                        starting mistake is not doing enough research, so make sure you grasp everything completely.
+                    </p>
+                    <div class="space-y-2" id="faqAccordion">
+                        <div class="faq-item">
+                            <div class="flex justify-between items-center bg-gray-800 p-3 rounded-lg cursor-pointer"
+                                onclick="toggleFAQ(this)">
+                                <p class="text-sm font-semibold">
+                                    IS THIS PROGRAM SUITABLE FOR BEGINNERS?
+                                </p>
+                                <svg class="h-6 w-6 text-white toggle-icon" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                            </div>
+                            <div class="faq-answer hidden bg-gray-700 p-4 mt-2 rounded-lg text-sm">
+                                Yes, Ted's Woodworking is designed for all skill levels, including beginners. It
+                                provides step-by-step guides and video tutorials to help you start confidently.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="flex justify-between items-center bg-gray-800 p-3 rounded-lg cursor-pointer"
+                                onclick="toggleFAQ(this)">
+                                <p class="text-base font-semibold">
+                                    WHAT IF I DON’T HAVE A LARGE BUDGET TO INVEST?
+                                </p>
+                                <svg class="h-6 w-6 text-white toggle-icon" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                            </div>
+                            <div class="faq-answer hidden bg-gray-700 p-4 mt-2 rounded-lg text-sm">
+                                No worries! The program is a one-time investment with no hidden costs, making it
+                                affordable even with a limited budget.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="flex justify-between items-center bg-gray-800 p-3 rounded-lg cursor-pointer"
+                                onclick="toggleFAQ(this)">
+                                <p class="text-base font-semibold">
+                                    HOW LONG WILL IT TAKE TO SEE RESULTS?
+                                </p>
+                                <svg class="h-6 w-6 text-white toggle-icon" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                            </div>
+                            <div class="faq-answer hidden bg-gray-700 p-4 mt-2 rounded-lg text-sm">
+                                Results depend on your pace, but many users see progress within a few weeks with
+                                consistent practice.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="flex justify-between items-center bg-gray-800 p-3 rounded-lg cursor-pointer"
+                                onclick="toggleFAQ(this)">
+                                <p class="text-base font-semibold">
+                                    HOW LONG WILL IT TAKE TO SEE RESULTS?
+                                </p>
+                                <svg class="h-6 w-6 text-white toggle-icon" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                            </div>
+                            <div class="faq-answer hidden bg-gray-700 p-4 mt-2 rounded-lg text-sm">
+                                Results depend on your pace, but many users see progress within a few weeks with
+                                consistent practice.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Section 10 -->
+    <main class="section10">
+        <section class="max-w-6xl mx-auto px-6 py-16 bg-white text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">
+                DON'T WAIT ANY LONGER!<br>
+                Join Your Discounted Program Now!
+            </h2>
+            <div class="items-center my-8">
+                <img src="public\assets\images\section 10.png" alt="Woodworking Product" class="w-full rounded-lg">
+            </div>
+            <p class="text-2xl md:text-3xl font-bold text-red-600 mb-2">
+                Regular Price: $500
+            </p>
+            <p class="text-3xl md:text-4xl font-bold text-black mb-4">
+                Today Just For: $67
+            </p>
+            <a href="#"
+                class="bg-ted-orange text-black font-bold text-lg px-8 py-3 rounded-full inline-block hover:bg-yellow-500 transition-colors mb-2">
+                Get Instant Access
+            </a>
+            <p class="text-lg text-gray-600">
+                Limited Time Offer
+            </p>
+        </section>
+    </main>
+
+    <!-- Section 11 (Footer) -->
+
+    <main class="section11">
+        <section class="max-w-6xl mx-auto px-6 py-8 bg-black text-white text-center">
+            <p class="text-sm md:text-base mb-4">
+                ClickBank is the retailer of products on this site. CLICKBANK® is a registered trademark of Click Sales,
+                Inc., a Delaware corporation located at 1444 South Entertainment Ave, Suite 410, Boise, Idaho, 83709,
+                USA and used by permission. ClickBank's role as retailer does not constitute an endorsement, approval or
+                review of these products or any claim, statement or opinion used in promotion of these products. *For
+                international shipping (outside of the United States), shipping fees will apply.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="text-sm md:text-base hover:text-ted-orange">Privacy Policy</a>
+                <a href="#" class="text-sm md:text-base hover:text-ted-orange">Terms and Conditions</a>
+                <a href="#" class="text-sm md:text-base hover:text-ted-orange">Disclaimers</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Section 12 (Copywrite) -->
+
+    <main class="section12 bg-ted-orange">
+        <section class="max-w-6xl mx-auto px-6 py-4 text-center">
+            <p class="text-sm md:text-base text-black">
+                &copy; Copyright 2025 Ted's Woodworking, ALL Rights Reserved.
+            </p>
+        </section>
+    </main>
+
+    <!-- Sections complete -->
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('.toggle-icon');
+            const faqContainer = document.querySelector('.section9 .h-full');
+
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+            } else {
+                answer.classList.add('hidden');
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>';
+            }
+
+            // Ensure the FAQ container height adjusts dynamically but doesn't shift the image
+            faqContainer.style.minHeight = faqContainer.scrollHeight + 'px';
+            faqContainer.style.maxHeight = faqContainer.scrollHeight + 'px';
+        }
+    </script>
+
+    <script>
+        const carousel = document.getElementById("carousel");
+        const cards = document.querySelectorAll(".card");
+        const prevBtn = document.getElementById("prev");
+        const nextBtn = document.getElementById("next");
+
+        // Function to determine card width based on screen size
+        const getCardWidth = () => {
+            return window.innerWidth >= 768 ? 276 : 236; // 260px + 16px margin for md+, 220px + 16px for smaller
+        };
+
+        let cardWidth = getCardWidth();
+        const totalCards = cards.length;
+        const visibleCards = window.innerWidth >= 768 ? 4 : 1; // Show 4 cards on md+, 1 on smaller screens
+        const step = 1; // Move one card at a time for smoother infinite loop
+        let index = 0;
+
+        // Clone cards for infinite loop effect
+        const clonedCards = Array.from(cards).map(card => card.cloneNode(true));
+        clonedCards.forEach(clone => carousel.appendChild(clone));
+
+        function updateCarousel() {
+            const offset = index * cardWidth;
+            carousel.style.transition = 'transform 0.5s ease-in-out';
+            carousel.style.transform = `translateX(-${offset}px)`;
+
+            // Reset index for infinite loop
+            if (index >= totalCards) {
+                setTimeout(() => {
+                    carousel.style.transition = 'none'; // Disable transition for seamless jump
+                    index = 0;
+                    carousel.style.transform = `translateX(0px)`;
+                }, 500); // Match the transition duration
+            } else if (index < 0) {
+                setTimeout(() => {
+                    carousel.style.transition = 'none'; // Disable transition for seamless jump
+                    index = totalCards - 1;
+                    carousel.style.transform = `translateX(-${(totalCards - 1) * cardWidth}px)`;
+                }, 500); // Match the transition duration
+            }
+        }
+
+        // Update card width on window resize
+        window.addEventListener('resize', () => {
+            cardWidth = getCardWidth();
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener("click", () => {
+            index++;
+            updateCarousel();
+        });
+
+        prevBtn.addEventListener("click", () => {
+            index--;
+            updateCarousel();
+        });
+
+        // Initialize carousel
+        updateCarousel();
+    </script>
+
+
+
+
+</body>
+
+</html>
